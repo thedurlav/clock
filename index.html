@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital clock</title>
+    <style>
+        
+        #time{
+            display: flex;
+            justify-content: center;
+        }
+        #time h1{
+            background-color: lightblue;
+            width: 150px;
+            height: 150px;
+            margin: 0px 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #date{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center;">Digital Clock</h1>
+    <div id ="time">
+        <h1 id ="hr">HR</h1>
+        <h1 id ="min">MN</h1>
+        <h1 id ="sec">SC</h1>
+    </div>
+    <h1 id="date">Date</h1>
+</body>
+<script>
+    function showCurrentTime() {
+        let current = new Date();
+        let hr = document.getElementById("hr")
+        let min = document.getElementById("min")
+        let sec = document.getElementById("sec")
+
+        hr.innerText = current.getHours()
+        min.innerText = current.getMinutes()
+        sec.innerText = current.getSeconds()
+
+        let date = document.getElementById("date")
+        date.innerText = current.toLocaleDateString()
+
+    }
+    setInterval(showCurrentTime,1000)
+</script>
+</html>
